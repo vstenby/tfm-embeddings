@@ -15,13 +15,16 @@ powered by tabular foundation models.
 
 Tabular foundation models like [TabICL](https://github.com/soda-inria/tabicl),
 [TabPFN](https://github.com/PriorLabs/TabPFN), and
-[Google TabFM](https://github.com/google-research/tabfm) compute rich per-row
+[TabFM](https://github.com/google-research/tabfm) compute rich per-row
 representations internally as part of in-context learning. `tfm-embeddings`
 exposes them behind the familiar encode/similarity API from
 [sentence-transformers](https://www.sbert.net/), for similarity search,
 retrieval, clustering, visualization, and feature extraction on tabular data.
 
-> ⚠️ Experimental, early-stage project. APIs may change.
+> [!WARNING]
+>
+> #### Experimental Code Notice
+> This project is experimental and early-stage. APIs may change without notice.
 
 <img src="docs/embedding_gallery.png" alt="UMAP of held-out test embeddings for three datasets (rows) and three backends (columns)" width="100%">
 
@@ -35,7 +38,7 @@ the visible structure is genuinely inferred. Reproduce with
 
 ## ✨ Highlights
 
-- **One API, three foundation models** — TabICL, TabPFN, and Google TabFM
+- **One API, three foundation models** — TabICL, TabPFN, and TabFM
   behind the same `fit` / `encode` / `similarity` / `search` interface.
 - **Retrieval built in** — top-k nearest-row search over your context table,
   RAG-style.
@@ -49,7 +52,7 @@ the visible structure is genuinely inferred. Reproduce with
 ```bash
 pip install tfm-embeddings[tabicl]   # TabICL backend
 pip install tfm-embeddings[tabpfn]   # TabPFN backend
-pip install tfm-embeddings[tabfm]    # Google TabFM backend (Python >= 3.11)
+pip install tfm-embeddings[tabfm]    # TabFM backend (Python >= 3.11)
 pip install tfm-embeddings[all]      # everything
 ```
 
@@ -102,7 +105,7 @@ never visible to the model — embedding your corpus does not leak its labels.
 |---------|-------------|------------------|----------|
 | TabICL  | `"tabicl"` or `"tabicl/<checkpoint>"` | Row representations after column-wise embedding + row-wise interaction (pre-ICL), extracted via forward hook | `tabicl>=2.1` |
 | TabPFN  | `"tabpfn"` or `"tabpfn/<model_path>"` | Per-row transformer outputs via the public `get_embeddings` API | `tabpfn>=2.0` (local, not the API client); downloading weights requires [license authentication](https://ux.priorlabs.ai) (`TABPFN_TOKEN`) |
-| TabFM (Google) | `"tabfm"` or `"tabfm/<checkpoint_path>"` | Row representations before the in-context learning transformer (`row_interactor_2`), extracted via forward hook | `tabfm[pytorch]>=1.0.0`, Python >= 3.11 |
+| TabFM | `"tabfm"` or `"tabfm/<checkpoint_path>"` | Row representations before the in-context learning transformer (`row_interactor_2`), extracted via forward hook | `tabfm[pytorch]>=1.0.0`, Python >= 3.11 |
 
 Backend-specific options are passed through the constructor:
 

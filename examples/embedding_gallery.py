@@ -53,7 +53,7 @@ DATASETS = [
 BACKENDS = [
     ("TabICLv2", lambda: TabularEmbedder("tabicl")),
     ("TabPFN", lambda: TabularEmbedder("tabpfn")),
-    ("Google TabFM", lambda: TabularEmbedder("tabfm", n_estimators=4)),
+    ("TabFM", lambda: TabularEmbedder("tabfm", n_estimators=4)),
 ]
 
 fig, axes = plt.subplots(3, 3, figsize=(15, 13.5), layout="constrained")
@@ -80,7 +80,7 @@ for i, (ds_name, loader) in enumerate(DATASETS):
             proj[:, 0], proj[:, 1], c=y_test, cmap=cmap, s=10, alpha=0.75, linewidths=0
         )
         ax.text(
-            0.02, 0.02, f"{emb.shape[1]}-d · {elapsed:.0f}s",
+            0.02, 0.02, f"{emb.shape[1]}-d",
             transform=ax.transAxes, fontsize=9, color="gray",
         )
         ax.set_xticks([])
