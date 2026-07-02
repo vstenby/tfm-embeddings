@@ -16,6 +16,7 @@ clustering, visualization, and feature extraction on tabular data.
 ```bash
 pip install tfm-transformers[tabicl]   # TabICL backend
 pip install tfm-transformers[tabpfn]   # TabPFN backend
+pip install tfm-transformers[tabfm]    # Google TabFM backend (Python >= 3.11)
 pip install tfm-transformers[all]      # everything
 ```
 
@@ -68,6 +69,7 @@ never visible to the model — embedding your corpus does not leak its labels.
 |---------|-------------|------------------|----------|
 | TabICL  | `"tabicl"` or `"tabicl/<checkpoint>"` | Row representations after column-wise embedding + row-wise interaction (pre-ICL), extracted via forward hook | `tabicl>=2.1` |
 | TabPFN  | `"tabpfn"` or `"tabpfn/<model_path>"` | Per-row transformer outputs via the public `get_embeddings` API | `tabpfn>=2.0` (local, not the API client); downloading weights requires [license authentication](https://ux.priorlabs.ai) (`TABPFN_TOKEN`) |
+| TabFM (Google) | `"tabfm"` or `"tabfm/<checkpoint_path>"` | Row representations before the in-context learning transformer (`row_interactor_2`), extracted via forward hook | `tabfm[pytorch]>=1.0.0`, Python >= 3.11 |
 
 Backend-specific options are passed through the constructor:
 

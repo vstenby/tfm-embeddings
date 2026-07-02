@@ -9,6 +9,7 @@ from .base import BackendAdapter
 _REGISTRY: dict[str, tuple[str, str]] = {
     "tabicl": ("tfm_transformers.adapters.tabicl", "TabICLAdapter"),
     "tabpfn": ("tfm_transformers.adapters.tabpfn", "TabPFNAdapter"),
+    "tabfm": ("tfm_transformers.adapters.tabfm", "TabFMAdapter"),
 }
 
 

@@ -7,7 +7,7 @@ from tfm_transformers import TabularTransformer, available_backends, cosine_simi
 
 
 def test_available_backends():
-    assert available_backends() == ["tabicl", "tabpfn"]
+    assert available_backends() == ["tabfm", "tabicl", "tabpfn"]
 
 
 def test_unknown_backend():

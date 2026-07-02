@@ -22,7 +22,8 @@ dependencies = [
 [project.optional-dependencies]
 tabicl = ["tabicl>=2.1"]
 tabpfn = ["tabpfn>=2.0"]
-all = ["tfm-transformers[tabicl,tabpfn]"]
+tabfm = ["tabfm[pytorch]>=1.0.0; python_version >= '3.11'"]
+all = ["tfm-transformers[tabicl,tabpfn,tabfm]"]
 test = ["pytest"]
 
 [project.urls]
